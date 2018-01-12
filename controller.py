@@ -51,18 +51,31 @@ class Controller:
                 else:
                     pass
 
-    def getEnemyList(self):
-        return self.EnemyList
-
-    def getPlayer(self):
-        return self.player
-
     def play(self, num):
         self.printout(self.mapInfo.get_original_map())
         for i in range(num):
             print("================\n" + str(i+1) + " turn\n" + "================")
             print("Press u(up) or d(down) or r(right) or l(left) or w(wait):", end="")
-            n = input()
-            print(n)
+            arrow = input()
+            self.input_check(arrow)
             self.printout(self.mapInfo.get_game_map())
+
+    def input_check(self, signal):
+        if signal == "w":
+            print("wait")
+            pass
+        elif signal == "r":
+            print("right")
+            pass
+        elif signal == "l":
+            print("left")
+            pass
+        elif signal == "u":
+            print("up")
+            pass
+        elif signal == "d":
+            print("down")
+            pass
+        else:
+            pass
 
